@@ -18,4 +18,6 @@ I hope to improve this to include binary operators like '+', or I may write anot
 <br>
 The ':3' is stupid, I was bored and I love when people use it online so...<br>
 <br>
+Huge credit to Richard J. Mathar, for the math library used https://doi.org/10.48550/arXiv.0908.3030<br>
+<br>
 Thanks, Harnam<br>
