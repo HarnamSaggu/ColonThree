@@ -375,11 +375,15 @@ class Editor : JFrame("ColonThree IDE") {
 						while (lookAhead < text.length) {
 							when (text[lookAhead]) {
 								'(', '[', '{' -> {
-									count++
+									if (text[lookAhead -1] != '\\') {
+										count++
+									}
 								}
 
 								')', ']', '}' -> {
-									count--
+									if (text[lookAhead -1] != '\\') {
+										count--
+									}
 								}
 							}
 
@@ -406,11 +410,15 @@ class Editor : JFrame("ColonThree IDE") {
 						while (lookBehind >= 0) {
 							when (text[lookBehind]) {
 								')', ']', '}' -> {
-									count++
+									if (text[lookBehind -1] != '\\') {
+										count++
+									}
 								}
 
 								'(', '[', '{' -> {
-									count--
+									if (text[lookBehind -1] != '\\') {
+										count--
+									}
 								}
 							}
 
