@@ -6,7 +6,6 @@ fun collect(
 	countIncType: TT,
 	countDecType: TT
 ): Pair<Int, MutableList<Token>> {
-
 	// index is needed so you can pick up from where this method leaves off
 	var index = startingIndex
 	// count keeps track of how nested we are in the pair of types which are collecting between
@@ -41,6 +40,8 @@ fun parse(tokens: List<Token>): List<Command> {
 
 		if (token.type == TT.MAIN_TAG) {
 			val body = collect(tokens, index + 2, 1, TT.OPEN_CURLY, TT.CLOSE_CURLY)
+//			body.second.addAll(mutableListOf(Token(TT.SEMICOLON), Token(TT.NAME, "exit"), Token(TT.OPEN), Token(TT.CLOSE), Token(TT.SEMICOLON)))
+			// todo write better way of adding a closing exit function to show exit code of 0 for natural termination
 			index = body.first
 			commands.add(MainMethod(splitIntoSections(body.second).map { parseSection(it) }))
 		} else if (token.type == TT.F_TAG) {

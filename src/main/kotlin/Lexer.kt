@@ -198,7 +198,7 @@ fun lex(sourceCode: String): List<Token> {
 	return tokens
 }
 
-class Token(val type: TT, val value: String?) {
+class Token(val type: TT, val value: String? = null) {
 	override fun toString(): String {
 		return "$type" + if (value != null) {
 			" {$value}"

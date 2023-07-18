@@ -3,5 +3,5 @@ import java.io.File
 fun main() {
 	Editor()
 
-//	run(File("src/main/resources/notes/main_input_text.txt").readText())
+//	run(File("src/main/resources/code/debug.txt").readText())
 }

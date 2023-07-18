@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="ColonThree:jar">
+  <artifact type="jar" name="ColonThree:jar">
     <output-path>$USER_HOME$/Desktop/ColonThree</output-path>
     <root id="archive" name="ColonThree.jar">
       <element id="module-output" name="ColonThree" />

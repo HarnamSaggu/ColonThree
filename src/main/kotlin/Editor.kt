@@ -13,12 +13,17 @@ import javax.swing.text.DefaultCaret
 import javax.swing.text.StyleConstants
 import javax.swing.text.StyleContext
 
+/*
+todo|       add auto indents
+todo|       simply when enter types add on the number of leading white spaces on the previous line
+ */
+
 class Editor : JFrame("ColonThree IDE") {
 	val editorPane: JTextPane
 	val outputPane: JTextArea
 	val outputScroller: JScrollPane
 	private var filePath: String? = null
-	var runThread: SwingWorker<Any?, Any?>
+	var runThread: SwingWorker<Any?, Any?> = createNewWorker()
 	val FONT_FOREGROUND = Color(210, 210, 210)
 	val BACKGROUND = Color(40, 40, 40)
 
@@ -273,12 +278,6 @@ class Editor : JFrame("ColonThree IDE") {
 				System.setOut(object : PrintStream(System.out) {
 					override fun println(x: Any?) {
 						outputPane.text += "$x\n"
-//						SwingUtilities.invokeLater {
-//							val vpSize: Dimension = outputScroller.viewport.extentSize
-//							val logSize: Dimension = outputPane.size
-//							val height = logSize.height - vpSize.height
-//							outputScroller.viewport.viewPosition = Point(0, height)
-//						}
 						super.println(x)
 					}
 
@@ -309,6 +308,7 @@ class Editor : JFrame("ColonThree IDE") {
 						""
 					}
 				})
+
 				return null
 			}
 		}

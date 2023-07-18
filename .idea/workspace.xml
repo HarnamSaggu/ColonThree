@@ -9,8 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" name="Changes" comment="JAR setup complete">
+    <list default="true" id="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" name="Changes" comment="Small graphical bug fixed :)">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ColonThree_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ColonThree_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Lexer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Lexer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Parser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Parser.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt" afterDir="false" />
+    </list>
+    <list id="d7064f79-9b25-452e-94e3-adcfdc5650d7" name="Changes by Harna" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +38,28 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/kotlin/Editor.kt">
+      <ranges>
+        <range start1="15" end1="15" start2="15" end2="20" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="20" end1="21" start2="25" end2="26" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="34" end1="49" start2="39" end2="39" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="248" end1="250" start2="238" end2="239" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="267" end1="267" start2="256" end2="261" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="275" end1="281" start2="269" end2="269" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="310" end1="310" start2="298" end2="302" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="311" end1="311" start2="303" end2="304" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt">
+      <ranges>
+        <range start1="7" end1="7" start2="7" end2="8" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="8" end1="10" start2="9" end2="11" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="23" end1="23" start2="24" end2="32" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="638" end1="638" start2="647" end2="655" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -43,6 +77,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
     "last_opened_file_path": "C:/Users/theto/IdeaProjects/ColonThree/src/main/resources",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Artifacts",
@@ -87,6 +122,11 @@
       <updated>1689608726834</updated>
       <workItem from="1689608728306" duration="2491000" />
       <workItem from="1689611253507" duration="1099000" />
+      <workItem from="1689612634216" duration="237000" />
+      <workItem from="1689613314818" duration="89000" />
+      <workItem from="1689619502118" duration="587000" />
+      <workItem from="1689634620988" duration="1956000" />
+      <workItem from="1689663981051" duration="9519000" />
     </task>
     <task id="LOCAL-00001" summary="JAR setup complete">
       <created>1689611338304</created>
@@ -95,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689611338304</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Small graphical bug fixed :)">
+      <created>1689612836810</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689612836810</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +161,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="JAR setup complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="JAR setup complete" />
+    <MESSAGE value="Small graphical bug fixed :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small graphical bug fixed :)" />
+  </component>
+  <component name="regexState">
+    <option name="map">
+      <map>
+        <entry key="flags" value="0" />
+        <entry key="mode" value="0" />
+        <entry key="regex" value=".*\n|d" />
+        <entry key="text" value="&#10;hello wolrld&#10;asdasdasd&#10;asdasdasasasdasdas&#10;dasdasd" />
+      </map>
+    </option>
   </component>
 </project>

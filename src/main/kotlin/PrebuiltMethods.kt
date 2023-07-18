@@ -5,6 +5,7 @@ import java.math.BigDecimal
 import java.math.BigInteger
 import java.math.MathContext
 import java.math.RoundingMode
+import kotlin.system.exitProcess
 
 var output: ((Any) -> Unit) = {
 	x -> print(x)
@@ -633,6 +634,14 @@ fun evaluatePrebuiltMethod(name: String, args: List<Any>): Any = when (name) {
 			}.toByteArray())
 		} else {
 			0
+		}
+	}
+
+	"exit" -> {
+		if (args.isNotEmpty()) {
+			exit(args[0].toString().toInt())
+		} else {
+			exit(0)
 		}
 	}
 
