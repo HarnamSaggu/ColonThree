@@ -1,7 +1,7 @@
 import java.io.File
 
 fun main() {
-	Editor()
-
+	print("Path: ")
+	run(File(readln()).readText())
 //	run(File("src/main/resources/code/debug.txt").readText())
 }

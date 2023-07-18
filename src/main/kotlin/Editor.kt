@@ -18,7 +18,12 @@ todo|       add auto indents
 todo|       simply when enter types add on the number of leading white spaces on the previous line
  */
 
+fun main() {
+	Editor()
+}
+
 class Editor : JFrame("ColonThree IDE") {
+
 	val editorPane: JTextPane
 	val outputPane: JTextArea
 	val outputScroller: JScrollPane
