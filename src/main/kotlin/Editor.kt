@@ -13,24 +13,29 @@ import javax.swing.text.DefaultCaret
 import javax.swing.text.StyleConstants
 import javax.swing.text.StyleContext
 
-/*
-todo|       add auto indents
-todo|       simply when enter types add on the number of leading white spaces on the previous line
- */
-
 fun main() {
 	Editor()
 }
 
 class Editor : JFrame("ColonThree IDE") {
-
 	val editorPane: JTextPane
 	val outputPane: JTextArea
 	val outputScroller: JScrollPane
 	private var filePath: String? = null
 	var runThread: SwingWorker<Any?, Any?> = createNewWorker()
+
+
 	val FONT_FOREGROUND = Color(210, 210, 210)
 	val BACKGROUND = Color(40, 40, 40)
+	val FUNCTION_COLOR = Color(240, 100, 100)
+	val KEYWORD_COLOR = Color(243, 69, 49)
+	val ASSIGNMENT_COLOR = Color(250, 180, 40)
+	val BRACKET_COLOR = Color(250, 110, 50)
+	val NORMAL_BRACKET_COLOR = Color(80, 100, 120)
+	val SEMICOLON_COLOR = Color(215, 72, 148)
+	val COMMENT_COLOR = Color(120, 95, 95)
+	val LITERAL_COLOR = Color(145, 185, 35)
+	val NUMBER_COLOR = Color(138, 139, 255)
 
 	init {
 		defaultCloseOperation = EXIT_ON_CLOSE
@@ -67,6 +72,29 @@ class Editor : JFrame("ColonThree IDE") {
 		editorPane.background = BACKGROUND
 		editorPane.border = BorderFactory.createEmptyBorder(15, 15, 15, 15)
 		editorPane.caretColor = Color(250, 180, 40)
+
+		editorPane.addKeyListener(object : KeyListener {
+			override fun keyTyped(e: KeyEvent?) {
+				if (e != null && e.keyChar == '\n') {
+					val doc = editorPane.styledDocument
+					val text = doc.getText(0, doc.length)
+					val pos = editorPane.caretPosition
+					val line = text.substring(0, pos - 1).split("\n").last()
+					val indentCount = line.length - line.trimStart().length
+					val indent = " ".repeat(indentCount)
+					doc.insertString(pos, indent, doc.getStyle("regular"))
+				}
+			}
+
+			override fun keyPressed(e: KeyEvent?) {
+				// unused
+			}
+
+			override fun keyReleased(e: KeyEvent?) {
+				// unused
+			}
+
+		})
 
 		val noWrapPanel = JPanel(BorderLayout())
 		noWrapPanel.add(editorPane)
@@ -222,7 +250,7 @@ class Editor : JFrame("ColonThree IDE") {
 		leftPanel.add(menuBar, BorderLayout.SOUTH)
 
 		openItem.addActionListener {
-			val dialog = FileDialog(null as Frame?, "Select File to Open")
+			val dialog = FileDialog(this, "Select File to Open")
 			dialog.mode = FileDialog.LOAD
 			dialog.isVisible = true
 			filePath = dialog.directory + dialog.file
@@ -238,7 +266,7 @@ class Editor : JFrame("ColonThree IDE") {
 		}
 
 		saveAsItem.addActionListener {
-			val dialog = FileDialog(null as Frame?, "Select File to Save to")
+			val dialog = FileDialog(this, "Select File to Save to")
 			dialog.mode = FileDialog.SAVE
 			dialog.isVisible = true
 			filePath = dialog.directory + dialog.file
@@ -380,13 +408,13 @@ class Editor : JFrame("ColonThree IDE") {
 						while (lookAhead < text.length) {
 							when (text[lookAhead]) {
 								'(', '[', '{' -> {
-									if (text[lookAhead -1] != '\\') {
+									if (text[lookAhead - 1] != '\\') {
 										count++
 									}
 								}
 
 								')', ']', '}' -> {
-									if (text[lookAhead -1] != '\\') {
+									if (text[lookAhead - 1] != '\\') {
 										count--
 									}
 								}
@@ -401,7 +429,7 @@ class Editor : JFrame("ColonThree IDE") {
 						}
 					} else {
 						segments.add(index to (index + 1))
-						styles.add("regular")
+						styles.add("normal bracket")
 					}
 				}
 
@@ -415,13 +443,13 @@ class Editor : JFrame("ColonThree IDE") {
 						while (lookBehind >= 0) {
 							when (text[lookBehind]) {
 								')', ']', '}' -> {
-									if (text[lookBehind -1] != '\\') {
+									if (text[lookBehind - 1] != '\\') {
 										count++
 									}
 								}
 
 								'(', '[', '{' -> {
-									if (text[lookBehind -1] != '\\') {
+									if (text[lookBehind - 1] != '\\') {
 										count--
 									}
 								}
@@ -436,8 +464,13 @@ class Editor : JFrame("ColonThree IDE") {
 						}
 					} else {
 						segments.add(index to (index + 1))
-						styles.add("regular")
+						styles.add("normal bracket")
 					}
+				}
+
+				';' -> {
+					segments.add(index to (index + 1))
+					styles.add("semicolon")
 				}
 
 				',', '-' -> {
@@ -470,7 +503,7 @@ class Editor : JFrame("ColonThree IDE") {
 				character == '\'' && text[index + 2] == '\''
 			) {
 				segments.add(index to (index + 3))
-				styles.add("char")
+				styles.add("literal")
 				index += 2
 			}
 
@@ -481,7 +514,7 @@ class Editor : JFrame("ColonThree IDE") {
 				when (text[index + 2]) {
 					't', 'b', 'n', 'r', '\'', '"', '\\' -> {
 						segments.add(index to (index + 4))
-						styles.add("char")
+						styles.add("literal")
 					}
 				}
 			}
@@ -511,7 +544,11 @@ class Editor : JFrame("ColonThree IDE") {
 
 					else -> {
 						segments.add(index to lookAheadIndex)
-						styles.add("regular")
+						if (lookAheadIndex < text.length && text[lookAheadIndex] == '(') {
+							styles.add("function")
+						} else {
+							styles.add("regular")
+						}
 					}
 				}
 				index = --lookAheadIndex
@@ -540,7 +577,7 @@ class Editor : JFrame("ColonThree IDE") {
 					// change index to index of second '"'
 					// (as there is an index++ at end)
 					segments.add(index to (lookAheadIndex + 1))
-					styles.add("char")
+					styles.add("literal")
 					index = lookAheadIndex
 				}
 			}
@@ -600,29 +637,35 @@ class Editor : JFrame("ColonThree IDE") {
 		StyleConstants.setForeground(def, FONT_FOREGROUND)
 		StyleConstants.setFontSize(def, 15)
 
-		var s = doc.addStyle("keyword", regular)
-		StyleConstants.setForeground(s, Color(243, 69, 49))
+		var s = doc.addStyle("function", regular)
+		StyleConstants.setForeground(s, FUNCTION_COLOR)
+
+		s = doc.addStyle("keyword", regular)
+		StyleConstants.setForeground(s, KEYWORD_COLOR)
 		StyleConstants.setBold(s, true)
 
 		s = doc.addStyle("assignment", regular)
-		StyleConstants.setForeground(s, Color(250, 180, 40))
+		StyleConstants.setForeground(s, ASSIGNMENT_COLOR)
 
 		s = doc.addStyle("bracket", regular)
-		StyleConstants.setForeground(s, Color(250, 110, 50))
+		StyleConstants.setForeground(s, BRACKET_COLOR)
 		StyleConstants.setBold(s, true)
 
+		s = doc.addStyle("normal bracket", regular)
+		StyleConstants.setForeground(s, NORMAL_BRACKET_COLOR)
+
 		s = doc.addStyle("semicolon", regular)
-		StyleConstants.setForeground(s, Color(215, 72, 148))
+		StyleConstants.setForeground(s, SEMICOLON_COLOR)
 		StyleConstants.setItalic(s, true)
 
 		s = doc.addStyle("comment", regular)
-		StyleConstants.setForeground(s, Color(120, 95, 95))
+		StyleConstants.setForeground(s, COMMENT_COLOR)
 
-		s = doc.addStyle("char", regular)
-		StyleConstants.setForeground(s, Color(145, 185, 35))
+		s = doc.addStyle("literal", regular)
+		StyleConstants.setForeground(s, LITERAL_COLOR)
 
 		s = doc.addStyle("number", regular)
-		StyleConstants.setForeground(s, Color(138, 139, 255))
+		StyleConstants.setForeground(s, NUMBER_COLOR)
 
 		return textPane
 	}

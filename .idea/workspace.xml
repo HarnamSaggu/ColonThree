@@ -3,25 +3,20 @@
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="ColonThreeEditor:jar" />
-      <artifact name="ColonThreeLang:jar" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" name="Changes" comment="I/O call doubled bug fixed&#10;small other stuff tweaked&#10;&#10;added exit method">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ColonThreeLang_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/f/1f287409129f2795edba348b7dd95bef2c708ce6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ColonThree_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ColonThreeEditor_jar.xml" afterDir="false" />
+    <list default="true" id="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" name="Changes" comment="JAR stuff :(">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Lexer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Lexer.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" afterDir="false" />
     </list>
     <list id="d7064f79-9b25-452e-94e3-adcfdc5650d7" name="Changes by Harna" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" afterDir="false" />
@@ -44,14 +39,64 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/kotlin/Runner.kt">
+      <ranges>
+        <range start1="9" end1="11" start2="9" end2="11" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="13" end1="14" start2="13" end2="14" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="38" end1="38" start2="38" end2="41" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="44" end1="44" start2="47" end2="48" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="66" end1="67" start2="70" end2="71" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="75" end1="79" start2="79" end2="82" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="121" end1="122" start2="124" end2="125" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="123" end1="124" start2="126" end2="127" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="135" end1="137" start2="138" end2="139" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="161" end1="164" start2="163" end2="165" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="165" end1="166" start2="166" end2="167" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="216" end1="217" start2="217" end2="220" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+      </ranges>
+    </file>
     <file path="$PROJECT_DIR$/src/main/kotlin/Editor.kt">
       <ranges>
-        <range start1="19" end1="19" start2="19" end2="23" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="21" end1="21" start2="25" end2="26" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="40" end1="55" start2="45" end2="45" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="253" end1="255" start2="243" end2="244" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="273" end1="273" start2="262" end2="267" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="309" end1="309" start2="303" end2="307" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="14" end1="19" start2="14" end2="14" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="25" end1="26" start2="20" end2="20" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="31" end1="31" start2="25" end2="27" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="33" end1="33" start2="29" end2="38" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="45" end1="60" start2="50" end2="50" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="69" end1="69" start2="59" end2="82" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="154" end1="154" start2="167" end2="168" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="155" end1="155" start2="169" end2="170" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="224" end1="225" start2="239" end2="240" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="233" end1="233" start2="248" end2="250" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="240" end1="241" start2="257" end2="258" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="258" end1="260" start2="275" end2="276" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="278" end1="278" start2="294" end2="300" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="314" end1="314" start2="336" end2="339" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="382" end1="383" start2="407" end2="408" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="388" end1="389" start2="413" end2="414" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="403" end1="404" start2="428" end2="429" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="417" end1="418" start2="442" end2="443" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="423" end1="424" start2="448" end2="449" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="438" end1="439" start2="463" end2="464" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="441" end1="441" start2="466" end2="471" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="472" end1="473" start2="502" end2="503" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="483" end1="484" start2="513" end2="514" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="513" end1="514" start2="543" end2="548" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="542" end1="543" start2="576" end2="577" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="602" end1="604" start2="636" end2="641" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="607" end1="608" start2="644" end2="645" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="610" end1="611" start2="647" end2="648" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="612" end1="612" start2="649" end2="652" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="614" end1="615" start2="654" end2="655" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="618" end1="619" start2="658" end2="659" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="620" end1="622" start2="660" end2="662" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="624" end1="625" start2="664" end2="665" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt">
+      <ranges>
+        <range start1="9" end1="11" start2="9" end2="11" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="25" end1="25" start2="25" end2="33" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="541" end1="542" start2="549" end2="550" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
       </ranges>
     </file>
   </component>
@@ -64,21 +109,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "C:/Users/theto/Desktop/ColonThree",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/theto/Desktop/ColonThree&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\theto\IdeaProjects\ColonThree\src\main\resources" />
@@ -92,27 +137,27 @@
       <recent name="C:\Users\theto\IdeaProjects\ColonThree\src\main\kotlin\lang" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt">
-    <configuration name="EditorKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Kotlin.EditorKt">
+    <configuration name="EditorKt" type="JetRunConfigurationType" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="EditorKt" />
       <module name="ColonThree" />
+      <shortenClasspath name="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+    <configuration name="MainKt" type="JetRunConfigurationType" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainKt" />
       <module name="ColonThree" />
+      <shortenClasspath name="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Kotlin.MainKt" />
-        <item itemvalue="Kotlin.EditorKt" />
-      </list>
-    </recent_temporary>
+    <list>
+      <item itemvalue="Kotlin.MainKt" />
+      <item itemvalue="Kotlin.EditorKt" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -130,7 +175,9 @@
       <workItem from="1689634620988" duration="1956000" />
       <workItem from="1689663981051" duration="9676000" />
       <workItem from="1689706016746" duration="1729000" />
-      <workItem from="1689707899424" duration="245000" />
+      <workItem from="1689707899424" duration="413000" />
+      <workItem from="1689786803827" duration="2469000" />
+      <workItem from="1689861595400" duration="8459000" />
     </task>
     <task id="LOCAL-00001" summary="JAR setup complete">
       <created>1689611338304</created>
@@ -153,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689705654934</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="JAR stuff :(">
+      <created>1689708303505</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1689708303505</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +228,35 @@
     <MESSAGE value="JAR setup complete" />
     <MESSAGE value="Small graphical bug fixed :)" />
     <MESSAGE value="I/O call doubled bug fixed&#10;small other stuff tweaked&#10;&#10;added exit method" />
-    <option name="LAST_COMMIT_MESSAGE" value="I/O call doubled bug fixed&#10;small other stuff tweaked&#10;&#10;added exit method" />
+    <MESSAGE value="JAR stuff :(" />
+    <option name="LAST_COMMIT_MESSAGE" value="JAR stuff :(" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Editor.kt</url>
+          <line>267</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Editor.kt</url>
+          <line>168</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Editor" memberName="FONT_FOREGROUND" />
+        <PinnedItemInfo parentTag="Editor" memberName="BACKGROUND" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="JetRunConfigurationType">
+        <watch expression="this" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="regexState">
     <option name="map">

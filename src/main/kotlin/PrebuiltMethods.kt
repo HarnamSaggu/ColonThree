@@ -539,7 +539,7 @@ fun evaluatePrebuiltMethod(name: String, args: List<Any>): Any = when (name) {
 
 	"split" -> {
 		if (args[0] is String && args[1] is String) {
-			(args[0] as String).split(Regex(args[1] as String))
+			(args[0] as String).split((args[1] as String).toRegex())
 		} else {
 			0
 		}

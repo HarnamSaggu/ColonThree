@@ -35,6 +35,8 @@ fun lex(sourceCode: String): List<Token> {
 			'{' -> TT.OPEN_CURLY
 			'}' -> TT.CLOSE_CURLY
 			',' -> TT.COMMA
+			// ';' or ':3' work as end line characters
+			';' -> TT.SEMICOLON
 			// if it's not found here it is unidentified (until it is hopefully identified)
 			else -> TT.UNIDENTIFED
 		}

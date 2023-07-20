@@ -214,7 +214,9 @@ class Runner(commands: List<Command>, output: ((Any) -> Unit)? = null, input: ((
 		val actualVarLevel = findVariable(variableName, variableLevel)
 		// return 0 if variable not found in the level 'containing' it
 		val level = variables[actualVarLevel] ?: return 0
-		return level[variableName] ?: 0
+		val variable = level[variableName] ?: 0
+		// returns value of variable and not the object itself
+		return if (variable is List<*>) variable.toMutableList() else variable
 	}
 
 	private fun getArrayItem(variableName: String, index: Int, variableLevel: MutableList<Int>): Any {
