@@ -20,22 +20,24 @@ fun main() {
 class Editor : JFrame("ColonThree IDE") {
 	val editorPane: JTextPane
 	val outputPane: JTextArea
-	val outputScroller: JScrollPane
+	private val outputScroller: JScrollPane
 	private var filePath: String? = null
-	var runThread: SwingWorker<Any?, Any?> = createNewWorker()
+	private var runThread: SwingWorker<Any?, Any?> = createNewWorker()
 
-
-	val FONT_FOREGROUND = Color(210, 210, 210)
-	val BACKGROUND = Color(40, 40, 40)
-	val FUNCTION_COLOR = Color(240, 100, 100)
-	val KEYWORD_COLOR = Color(243, 69, 49)
-	val ASSIGNMENT_COLOR = Color(250, 180, 40)
-	val BRACKET_COLOR = Color(250, 110, 50)
-	val NORMAL_BRACKET_COLOR = Color(80, 100, 120)
-	val SEMICOLON_COLOR = Color(215, 72, 148)
-	val COMMENT_COLOR = Color(120, 95, 95)
-	val LITERAL_COLOR = Color(145, 185, 35)
-	val NUMBER_COLOR = Color(138, 139, 255)
+	val fontForeground = Color(210, 210, 210)
+	val editorBackground = Color(40, 40, 40)
+	private val variableColor = Color(240, 100, 100)
+	private val keywordColor = Color(243, 69, 49)
+	private val assignmentColor = Color(250, 180, 40)
+	private val bracketColor = Color(250, 110, 50)
+	private val normalBracketColor = Color(80, 100, 120)
+	private val semicolonColor = Color(215, 72, 148)
+	private val commentColor = Color(120, 95, 95)
+	private val literalColor = Color(145, 185, 35)
+	private val numberColor = Color(138, 139, 255)
+	private val caretColor = Color(250, 180, 40)
+	private val fontSize = 16
+	val autoSaveTimer = 1_500
 
 	init {
 		defaultCloseOperation = EXIT_ON_CLOSE
@@ -71,7 +73,7 @@ class Editor : JFrame("ColonThree IDE") {
 		editorPane = createTextPane()
 		editorPane.background = BACKGROUND
 		editorPane.border = BorderFactory.createEmptyBorder(15, 15, 15, 15)
-		editorPane.caretColor = Color(250, 180, 40)
+		editorPane.caretColor = caretColor
 
 		editorPane.addKeyListener(object : KeyListener {
 			override fun keyTyped(e: KeyEvent?) {
@@ -116,10 +118,9 @@ class Editor : JFrame("ColonThree IDE") {
 		editorScroller.border = BorderFactory.createEmptyBorder(10, 10, 10, 10)
 		leftPanel.add(editorScroller, BorderLayout.CENTER)
 
-		val font = Font("Fira code", Font.PLAIN, 15)
+		val font = Font("Fira code", Font.PLAIN, fontSize)
 
 		outputPane = JTextArea()
-//		outputPane.contentType = "text/html"
 		outputPane.border = BorderFactory.createEmptyBorder(5, 5, 5, 5)
 		outputPane.background = BACKGROUND
 //		outputPane.preferredSize = Dimension(350, 700)
@@ -173,6 +174,7 @@ class Editor : JFrame("ColonThree IDE") {
 
 		var prevText = ""
 		var prevDot = 0
+		var time = System.currentTimeMillis()
 		object : SwingWorker<Any?, Any?>() {
 			override fun doInBackground(): Any? {
 				val run = true
@@ -181,6 +183,12 @@ class Editor : JFrame("ColonThree IDE") {
 						setText()
 						prevText = editorPane.text
 						prevDot = editorPane.caret.dot
+
+						if (System.currentTimeMillis() - time >= autoSaveTimer) {
+							File("autosave.txt").writeText(editorPane.text)
+
+							time = System.currentTimeMillis()
+						}
 					}
 				}
 				return null
@@ -345,6 +353,12 @@ class Editor : JFrame("ColonThree IDE") {
 				return null
 			}
 		}
+	}
+
+	private fun terminate(x: Int) {
+		outputPane.text += "\nExit code: $x\n"
+		runThread.cancel(true)
+		runThread = createNewWorker()
 	}
 
 	private fun save() {
@@ -544,8 +558,8 @@ class Editor : JFrame("ColonThree IDE") {
 
 					else -> {
 						segments.add(index to lookAheadIndex)
-						if (lookAheadIndex < text.length && text[lookAheadIndex] == '(') {
-							styles.add("function")
+						if (lookAheadIndex < text.length && text[lookAheadIndex] != '(') {
+							styles.add("variable")
 						} else {
 							styles.add("regular")
 						}
@@ -559,7 +573,7 @@ class Editor : JFrame("ColonThree IDE") {
 				var lookAheadIndex = index + 1
 				if (lookAheadIndex < text.length && text[lookAheadIndex] == '"') {
 					segments.add(index to (lookAheadIndex + 1))
-					styles.add("char")
+					styles.add("literal")
 					index = lookAheadIndex
 				} else {
 					while (lookAheadIndex < text.length) {
@@ -624,49 +638,5 @@ class Editor : JFrame("ColonThree IDE") {
 		}
 
 		return segments to styles
-	}
-
-	private fun createTextPane(): JTextPane {
-		val textPane = JTextPane()
-
-		val doc = textPane.styledDocument
-		val def = StyleContext.getDefaultStyleContext().getStyle(StyleContext.DEFAULT_STYLE)
-
-		val regular = doc.addStyle("regular", def)
-		StyleConstants.setFontFamily(def, "Fira code")
-		StyleConstants.setForeground(def, FONT_FOREGROUND)
-		StyleConstants.setFontSize(def, 15)
-
-		var s = doc.addStyle("function", regular)
-		StyleConstants.setForeground(s, FUNCTION_COLOR)
-
-		s = doc.addStyle("keyword", regular)
-		StyleConstants.setForeground(s, KEYWORD_COLOR)
-		StyleConstants.setBold(s, true)
-
-		s = doc.addStyle("assignment", regular)
-		StyleConstants.setForeground(s, ASSIGNMENT_COLOR)
-
-		s = doc.addStyle("bracket", regular)
-		StyleConstants.setForeground(s, BRACKET_COLOR)
-		StyleConstants.setBold(s, true)
-
-		s = doc.addStyle("normal bracket", regular)
-		StyleConstants.setForeground(s, NORMAL_BRACKET_COLOR)
-
-		s = doc.addStyle("semicolon", regular)
-		StyleConstants.setForeground(s, SEMICOLON_COLOR)
-		StyleConstants.setItalic(s, true)
-
-		s = doc.addStyle("comment", regular)
-		StyleConstants.setForeground(s, COMMENT_COLOR)
-
-		s = doc.addStyle("literal", regular)
-		StyleConstants.setForeground(s, LITERAL_COLOR)
-
-		s = doc.addStyle("number", regular)
-		StyleConstants.setForeground(s, NUMBER_COLOR)
-
-		return textPane
 	}
 }

@@ -310,8 +310,8 @@ fun evaluatePrebuiltMethod(name: String, args: List<Any>): Any = when (name) {
 		}
 	}
 
-	// int -> double
-	"double" -> {
+	// int -> decimal
+	"decimal" -> {
 		if (args[0] is BigInteger) {
 			val a = args[0] as BigInteger
 			BigDecimal(a)
@@ -326,7 +326,7 @@ fun evaluatePrebuiltMethod(name: String, args: List<Any>): Any = when (name) {
 			val a = args[0] as BigDecimal
 			a.toBigInteger()
 		} else if (args[0] is Char) {
-			(args[0] as Char).code
+			BigInteger((args[0] as Char).code.toString())
 		} else if (args[0] is String) {
 			BigInteger((args[0] as String).replace("_", ""))
 		} else {
@@ -558,6 +558,14 @@ fun evaluatePrebuiltMethod(name: String, args: List<Any>): Any = when (name) {
 
 	"string" -> {
 		args[0].toString()
+	}
+
+	"lowercase" -> {
+		args[0].toString().lowercase()
+	}
+
+	"uppercase" -> {
+		args[0].toString().uppercase()
 	}
 
 	"addAll" -> {

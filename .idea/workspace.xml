@@ -3,20 +3,18 @@
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="ColonThreeEditor:jar" />
+      <artifact name="ColonThreeLang:jar" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" name="Changes" comment="JAR stuff :(">
+    <list default="true" id="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" name="Changes" comment="added safety with array returns&#10;&#10;added auto indents for editor!!!&#10;also changed the color for method calls and non focused brackets&#10;&#10;made ':3' optional, ';' is the alternative for quicker coding">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Lexer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Lexer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" afterDir="false" />
     </list>
     <list id="d7064f79-9b25-452e-94e3-adcfdc5650d7" name="Changes by Harna" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" afterDir="false" />
@@ -39,64 +37,51 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/kotlin/Runner.kt">
-      <ranges>
-        <range start1="9" end1="11" start2="9" end2="11" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="13" end1="14" start2="13" end2="14" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="38" end1="38" start2="38" end2="41" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="44" end1="44" start2="47" end2="48" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="66" end1="67" start2="70" end2="71" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="75" end1="79" start2="79" end2="82" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="121" end1="122" start2="124" end2="125" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="123" end1="124" start2="126" end2="127" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="135" end1="137" start2="138" end2="139" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="161" end1="164" start2="163" end2="165" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="165" end1="166" start2="166" end2="167" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="216" end1="217" start2="217" end2="220" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/kotlin/Editor.kt">
-      <ranges>
-        <range start1="14" end1="19" start2="14" end2="14" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="25" end1="26" start2="20" end2="20" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="31" end1="31" start2="25" end2="27" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="33" end1="33" start2="29" end2="38" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="45" end1="60" start2="50" end2="50" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="69" end1="69" start2="59" end2="82" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="154" end1="154" start2="167" end2="168" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="155" end1="155" start2="169" end2="170" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="224" end1="225" start2="239" end2="240" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="233" end1="233" start2="248" end2="250" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="240" end1="241" start2="257" end2="258" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="258" end1="260" start2="275" end2="276" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="278" end1="278" start2="294" end2="300" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="314" end1="314" start2="336" end2="339" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="382" end1="383" start2="407" end2="408" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="388" end1="389" start2="413" end2="414" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="403" end1="404" start2="428" end2="429" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="417" end1="418" start2="442" end2="443" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="423" end1="424" start2="448" end2="449" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="438" end1="439" start2="463" end2="464" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="441" end1="441" start2="466" end2="471" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="472" end1="473" start2="502" end2="503" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="483" end1="484" start2="513" end2="514" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="513" end1="514" start2="543" end2="548" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="542" end1="543" start2="576" end2="577" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="602" end1="604" start2="636" end2="641" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="607" end1="608" start2="644" end2="645" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="610" end1="611" start2="647" end2="648" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="612" end1="612" start2="649" end2="652" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="614" end1="615" start2="654" end2="655" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="618" end1="619" start2="658" end2="659" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="620" end1="622" start2="660" end2="662" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="624" end1="625" start2="664" end2="665" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-      </ranges>
-    </file>
     <file path="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt">
       <ranges>
         <range start1="9" end1="11" start2="9" end2="11" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
         <range start1="25" end1="25" start2="25" end2="33" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="541" end1="542" start2="549" end2="550" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="312" end1="314" start2="320" end2="322" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="328" end1="329" start2="336" end2="337" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="561" end1="561" start2="569" end2="577" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/kotlin/Editor.kt">
+      <ranges>
+        <range start1="6" end1="6" start2="6" end2="7" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="22" end1="23" start2="23" end2="24" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="24" end1="25" start2="25" end2="26" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="26" end1="38" start2="27" end2="40" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="48" end1="64" start2="50" end2="51" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="67" end1="68" start2="54" end2="55" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="71" end1="72" start2="58" end2="59" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="73" end1="74" start2="60" end2="61" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="102" end1="105" start2="89" end2="92" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="118" end1="119" start2="105" end2="106" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="121" end1="122" start2="108" end2="108" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="123" end1="125" start2="109" end2="110" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="126" end1="128" start2="111" end2="112" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="130" end1="133" start2="114" end2="117" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="147" end1="148" start2="131" end2="132" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="175" end1="175" start2="159" end2="160" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="183" end1="183" start2="168" end2="174" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="191" end1="192" start2="182" end2="183" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="195" end1="197" start2="186" end2="188" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="202" end1="204" start2="193" end2="195" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="209" end1="211" start2="200" end2="202" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="216" end1="218" start2="207" end2="209" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="223" end1="225" start2="214" end2="216" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="230" end1="232" start2="221" end2="223" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="237" end1="239" start2="228" end2="230" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="244" end1="246" start2="235" end2="237" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="286" end1="288" start2="277" end2="278" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="306" end1="306" start2="296" end2="340" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="327" end1="329" start2="361" end2="363" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="342" end1="342" start2="376" end2="379" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="349" end1="349" start2="386" end2="392" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="546" end1="548" start2="589" end2="591" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="561" end1="562" start2="604" end2="605" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="627" end1="671" start2="670" end2="670" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
       </ranges>
     </file>
   </component>
@@ -177,7 +162,8 @@
       <workItem from="1689706016746" duration="1729000" />
       <workItem from="1689707899424" duration="413000" />
       <workItem from="1689786803827" duration="2469000" />
-      <workItem from="1689861595400" duration="8459000" />
+      <workItem from="1689861595400" duration="9851000" />
+      <workItem from="1689894186624" duration="5782000" />
     </task>
     <task id="LOCAL-00001" summary="JAR setup complete">
       <created>1689611338304</created>
@@ -207,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689708303505</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added safety with array returns&#10;&#10;added auto indents for editor!!!&#10;also changed the color for method calls and non focused brackets&#10;&#10;made ':3' optional, ';' is the alternative for quicker coding">
+      <created>1689893002102</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1689893002102</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,23 +222,10 @@
     <MESSAGE value="Small graphical bug fixed :)" />
     <MESSAGE value="I/O call doubled bug fixed&#10;small other stuff tweaked&#10;&#10;added exit method" />
     <MESSAGE value="JAR stuff :(" />
-    <option name="LAST_COMMIT_MESSAGE" value="JAR stuff :(" />
+    <MESSAGE value="added safety with array returns&#10;&#10;added auto indents for editor!!!&#10;also changed the color for method calls and non focused brackets&#10;&#10;made ':3' optional, ';' is the alternative for quicker coding" />
+    <option name="LAST_COMMIT_MESSAGE" value="added safety with array returns&#10;&#10;added auto indents for editor!!!&#10;also changed the color for method calls and non focused brackets&#10;&#10;made ':3' optional, ';' is the alternative for quicker coding" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Editor.kt</url>
-          <line>267</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Editor.kt</url>
-          <line>168</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Editor" memberName="FONT_FOREGROUND" />
