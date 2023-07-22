@@ -28,11 +28,11 @@ class Editor : JFrame("ColonThree IDE") {
 
 	val fontForeground = Color(210, 210, 210)
 	val editorBackground = Color(40, 40, 40)
-	private val variableColor = Color(240, 100, 100)
+	private val variableColor = Color(0xE7BEAA)
 	private val keywordColor = Color(243, 69, 49)
 	private val assignmentColor = Color(250, 180, 40)
 	private val bracketColor = Color(250, 110, 50)
-	private val normalBracketColor = Color(80, 100, 120)
+	private val normalBracketColor = Color(0x6E8DA4)
 	private val semicolonColor = Color(215, 72, 148)
 	private val commentColor = Color(120, 95, 95)
 	private val literalColor = Color(145, 185, 35)
