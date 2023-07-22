@@ -84,7 +84,10 @@ class Editor : JFrame("ColonThree IDE") {
 					val text = doc.getText(0, doc.length)
 					val pos = editorPane.caretPosition
 					val line = text.substring(0, pos - 1).split("\n").last()
-					val indentCount = line.length - line.trimStart().length
+					var indentCount = line.length - line.trimStart().length
+					if (pos > 2 && text[pos - 2] == '{') {
+						indentCount += 3
+					}
 					val indent = " ".repeat(indentCount)
 					doc.insertString(pos, indent, doc.getStyle("regular"))
 				}

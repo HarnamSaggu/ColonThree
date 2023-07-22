@@ -10,11 +10,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" name="Changes" comment="autosave&#10;16px font size which looks so much better&#10;added a couple prebuilt methods">
+    <list default="true" id="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" name="Changes" comment="honestly dont know what this commit is about">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Parser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Parser.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" afterDir="false" />
     </list>
     <list id="d7064f79-9b25-452e-94e3-adcfdc5650d7" name="Changes by Harna" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" afterDir="false" />
@@ -37,51 +36,48 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt">
+    <file path="$PROJECT_DIR$/src/main/kotlin/Runner.kt">
       <ranges>
         <range start1="9" end1="11" start2="9" end2="11" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="25" end1="25" start2="25" end2="33" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="582" end1="583" start2="590" end2="591" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="584" end1="585" start2="592" end2="594" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="600" end1="600" start2="609" end2="618" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="620" end1="620" start2="638" end2="646" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="13" end1="14" start2="13" end2="14" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="38" end1="38" start2="38" end2="41" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="44" end1="44" start2="47" end2="48" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="47" end1="48" start2="51" end2="56" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="66" end1="67" start2="74" end2="75" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="75" end1="79" start2="83" end2="86" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="121" end1="122" start2="128" end2="129" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="123" end1="124" start2="130" end2="131" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="135" end1="137" start2="142" end2="143" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="161" end1="164" start2="167" end2="169" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="165" end1="166" start2="170" end2="171" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
       </ranges>
     </file>
     <file path="$PROJECT_DIR$/src/main/kotlin/Editor.kt">
       <ranges>
-        <range start1="14" end1="14" start2="14" end2="15" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="21" end1="21" start2="22" end2="23" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="50" end1="66" start2="52" end2="53" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="69" end1="70" start2="56" end2="57" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="73" end1="74" start2="60" end2="61" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="76" end1="76" start2="63" end2="64" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="80" end1="81" start2="68" end2="68" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="104" end1="107" start2="91" end2="94" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="124" end1="126" start2="111" end2="112" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="127" end1="129" start2="113" end2="114" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="131" end1="134" start2="116" end2="119" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="148" end1="149" start2="133" end2="134" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="171" end1="172" start2="156" end2="156" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="199" end1="200" start2="183" end2="184" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="203" end1="205" start2="187" end2="189" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="210" end1="212" start2="194" end2="196" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="217" end1="219" start2="201" end2="203" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="224" end1="226" start2="208" end2="210" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="231" end1="233" start2="215" end2="217" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="238" end1="240" start2="222" end2="224" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="245" end1="247" start2="229" end2="231" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="252" end1="254" start2="236" end2="238" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="256" end1="256" start2="240" end2="247" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="283" end1="283" start2="274" end2="280" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="294" end1="296" start2="291" end2="292" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="314" end1="314" start2="310" end2="354" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="335" end1="337" start2="375" end2="377" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="350" end1="350" start2="390" end2="393" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="365" end1="366" start2="408" end2="408" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="370" end1="373" start2="412" end2="414" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="405" end1="407" start2="446" end2="446" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="408" end1="408" start2="447" end2="453" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="409" end1="410" start2="454" end2="456" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="52" end1="68" start2="52" end2="53" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="71" end1="72" start2="56" end2="57" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="75" end1="76" start2="60" end2="61" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="86" end1="87" start2="71" end2="75" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="106" end1="109" start2="94" end2="97" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="126" end1="128" start2="114" end2="115" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="129" end1="131" start2="116" end2="117" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="133" end1="136" start2="119" end2="122" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="150" end1="151" start2="136" end2="137" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="200" end1="201" start2="186" end2="187" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="204" end1="206" start2="190" end2="192" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="211" end1="213" start2="197" end2="199" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="218" end1="220" start2="204" end2="206" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="225" end1="227" start2="211" end2="213" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="232" end1="234" start2="218" end2="220" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="239" end1="241" start2="225" end2="227" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="246" end1="248" start2="232" end2="234" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="253" end1="255" start2="239" end2="241" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="308" end1="310" start2="294" end2="295" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="328" end1="328" start2="313" end2="357" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="346" end1="347" start2="375" end2="376" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="349" end1="351" start2="378" end2="380" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="353" end1="354" start2="382" end2="383" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="364" end1="364" start2="393" end2="396" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
       </ranges>
     </file>
   </component>
@@ -121,6 +117,11 @@
       <recent name="C:\Users\theto\IdeaProjects\ColonThree\src\main\kotlin" />
       <recent name="C:\Users\theto\IdeaProjects\ColonThree\src\main\kotlin\lang" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="git revert" />
+    </option>
   </component>
   <component name="RunManager" selected="Kotlin.EditorKt">
     <configuration name="EditorKt" type="JetRunConfigurationType" nameIsGenerated="true">
@@ -163,7 +164,7 @@
       <workItem from="1689707899424" duration="413000" />
       <workItem from="1689786803827" duration="2469000" />
       <workItem from="1689861595400" duration="9851000" />
-      <workItem from="1689894186624" duration="13871000" />
+      <workItem from="1689894186624" duration="16150000" />
     </task>
     <task id="LOCAL-00001" summary="JAR setup complete">
       <created>1689611338304</created>
@@ -207,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689918590805</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="honestly dont know what this commit is about">
+      <created>1690066120782</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1690066120782</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +239,8 @@
     <MESSAGE value="JAR stuff :(" />
     <MESSAGE value="added safety with array returns&#10;&#10;added auto indents for editor!!!&#10;also changed the color for method calls and non focused brackets&#10;&#10;made ':3' optional, ';' is the alternative for quicker coding" />
     <MESSAGE value="autosave&#10;16px font size which looks so much better&#10;added a couple prebuilt methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="autosave&#10;16px font size which looks so much better&#10;added a couple prebuilt methods" />
+    <MESSAGE value="honestly dont know what this commit is about" />
+    <option name="LAST_COMMIT_MESSAGE" value="honestly dont know what this commit is about" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

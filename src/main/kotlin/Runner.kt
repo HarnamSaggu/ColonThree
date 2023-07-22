@@ -45,7 +45,11 @@ class Runner(commands: List<Command>, output: ((Any) -> Unit)? = null, input: ((
 	}
 
 	// as a method counts as a section, a return statement is needed
-	private fun runSection(commands: List<Command>, variableLevel: MutableList<Int>, returnStatement: Command?): Any {
+	private fun runSection(
+		commands: List<Command>,
+		variableLevel: MutableList<Int>,
+		returnStatement: Command?,
+	): Any {
 		// subLevel keeps track of how many levels precede it for the last int in the level signature
 		var subLevel = 0
 
