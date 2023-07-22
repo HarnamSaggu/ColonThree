@@ -12,6 +12,7 @@ import javax.swing.plaf.basic.BasicSplitPaneUI
 import javax.swing.text.DefaultCaret
 import javax.swing.text.StyleConstants
 import javax.swing.text.StyleContext
+import javax.swing.text.StyledDocument
 
 fun main() {
 	Editor()
@@ -19,6 +20,7 @@ fun main() {
 
 class Editor : JFrame("ColonThree IDE") {
 	val editorPane: JTextPane
+	val doc: StyledDocument
 	val outputPane: JTextArea
 	private val outputScroller: JScrollPane
 	private var filePath: String? = null
@@ -74,11 +76,11 @@ class Editor : JFrame("ColonThree IDE") {
 		editorPane.background = BACKGROUND
 		editorPane.border = BorderFactory.createEmptyBorder(15, 15, 15, 15)
 		editorPane.caretColor = caretColor
+		doc = editorPane.styledDocument
 
 		editorPane.addKeyListener(object : KeyListener {
 			override fun keyTyped(e: KeyEvent?) {
 				if (e != null && e.keyChar == '\n') {
-					val doc = editorPane.styledDocument
 					val text = doc.getText(0, doc.length)
 					val pos = editorPane.caretPosition
 					val line = text.substring(0, pos - 1).split("\n").last()
@@ -169,7 +171,6 @@ class Editor : JFrame("ColonThree IDE") {
 		splitPane.border = null
 		add(splitPane, BorderLayout.CENTER)
 
-		val doc = editorPane.styledDocument
 		doc.setCharacterAttributes(0, editorPane.text.length, doc.getStyle("regular"), true)
 
 		var prevText = ""
@@ -255,6 +256,13 @@ class Editor : JFrame("ColonThree IDE") {
 		saveAsItem.mnemonic = VK_A
 		fileMenu.add(saveAsItem)
 
+		val refreshItem = JMenuItem("Refresh")
+		refreshItem.font = font
+		refreshItem.foreground = fontForeground
+		refreshItem.background = editorBackground
+		refreshItem.mnemonic = VK_R
+		fileMenu.add(refreshItem)
+
 		leftPanel.add(menuBar, BorderLayout.SOUTH)
 
 		openItem.addActionListener {
@@ -280,6 +288,12 @@ class Editor : JFrame("ColonThree IDE") {
 			filePath = dialog.directory + dialog.file
 			dialog.dispose()
 			save()
+		}
+
+		refreshItem.addActionListener {
+			val sourceCode = doc.getText(0, doc.length)
+			setText("")
+			setText(sourceCode)
 		}
 
 		runThread = createNewWorker()
@@ -363,14 +377,12 @@ class Editor : JFrame("ColonThree IDE") {
 
 	private fun save() {
 		if (filePath != null) {
-			val doc = editorPane.styledDocument
 			File(filePath!!).writeText(doc.getText(0, doc.length))
 		}
 	}
 
-	private fun setText() {
-		val doc = editorPane.styledDocument
-		val interpreted = interpretText(doc.getText(0, doc.length))
+	private fun setText(text: String = doc.getText(0, doc.length)) {
+		val interpreted = interpretText(text)
 		val sections = interpreted.first
 		val styles = interpreted.second
 		for (i in sections.indices) {
@@ -403,11 +415,16 @@ class Editor : JFrame("ColonThree IDE") {
 			if (character == '#') {
 				// identifies the end of the comment
 				val indexOfNext = text.substring(index, text.length).indexOf("\n")
-
-				segments.add(index to (index + indexOfNext))
 				styles.add("comment")
+				if (indexOfNext == -1) {
+					segments.add(index to text.length)
 
-				index += indexOfNext
+					index = text.length
+				} else {
+					segments.add(index to (index + indexOfNext))
+
+					index += indexOfNext
+				}
 				continue
 			}
 

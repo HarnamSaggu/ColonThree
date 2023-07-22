@@ -580,9 +580,10 @@ fun evaluatePrebuiltMethod(name: String, args: List<Any>): Any = when (name) {
 
 	"removeAt" -> {
 		if (args[0] is MutableList<*> && args[1] is BigInteger) {
-			val a = args[0] as MutableList<*>
+			val a = (args[0] as MutableList<*>).toMutableList()
 			val b = (args[1] as BigInteger).toInt()
-			a.filterIndexed { index, _ -> index != b }
+			a.removeAt(b)
+			a
 		} else {
 			0
 		}
@@ -594,6 +595,15 @@ fun evaluatePrebuiltMethod(name: String, args: List<Any>): Any = when (name) {
 			val b = (args[1] as BigInteger).toInt()
 			val c = (args[2] as BigInteger).toInt()
 			a.subList(b, c)
+		} else {
+			0
+		}
+	}
+
+	"indexOf" -> {
+		if (args.size == 2 && args[0] is MutableList<*>) {
+			val a = args[0] as MutableList<*>
+			BigInteger(a.indexOf(args[1]).toString())
 		} else {
 			0
 		}
@@ -614,6 +624,14 @@ fun evaluatePrebuiltMethod(name: String, args: List<Any>): Any = when (name) {
 	"readFile" -> {
 		if (args[0] is String) {
 			File(args[0] as String).readText()
+		} else {
+			0
+		}
+	}
+
+	"readLines" -> {
+		if (args[0] is String) {
+			File(args[0] as String).readLines().toMutableList()
 		} else {
 			0
 		}
