@@ -1,7 +1,6 @@
 import java.awt.*
-import java.awt.event.KeyEvent
+import java.awt.event.*
 import java.awt.event.KeyEvent.*
-import java.awt.event.KeyListener
 import java.io.File
 import java.io.PrintStream
 import javax.swing.*
@@ -13,6 +12,8 @@ import javax.swing.text.DefaultCaret
 import javax.swing.text.StyleConstants
 import javax.swing.text.StyleContext
 import javax.swing.text.StyledDocument
+import kotlin.system.exitProcess
+
 
 fun main() {
 	Editor()
@@ -42,7 +43,7 @@ class Editor : JFrame("ColonThree IDE") {
 	val autoSaveTimer = 1_500
 
 	init {
-		defaultCloseOperation = EXIT_ON_CLOSE
+		defaultCloseOperation = DO_NOTHING_ON_CLOSE
 		layout = BorderLayout()
 		minimumSize = Dimension(500, 330)
 		iconImage = if (File("src/main/resources/icon.png").exists()) {
@@ -101,6 +102,13 @@ class Editor : JFrame("ColonThree IDE") {
 				// unused
 			}
 
+		})
+
+		addWindowListener(object : WindowAdapter() {
+			override fun windowClosing(e: WindowEvent) {
+				File("autosave.txt").writeText(editorPane.text)
+				exitProcess(0)
+			}
 		})
 
 		val noWrapPanel = JPanel(BorderLayout())
@@ -327,6 +335,9 @@ class Editor : JFrame("ColonThree IDE") {
 		pack()
 		setLocationRelativeTo(null)
 		isVisible = true
+
+		editorPane.text = File("autosave.txt").readText()
+		setText()
 	}
 
 	private fun createNewWorker(): SwingWorker<Any?, Any?> {
