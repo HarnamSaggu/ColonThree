@@ -1,35 +1,3 @@
-// collects all tokens encased by countIntType and countDecType
-fun collect(
-	tokens: List<Token>,
-	startingIndex: Int,
-	startingCount: Int,
-	countIncType: TT,
-	countDecType: TT
-): Pair<Int, MutableList<Token>> {
-	// index is needed so you can pick up from where this method leaves off
-	var index = startingIndex
-	// count keeps track of how nested we are in the pair of types which are collecting between
-	var count = startingCount
-	val accumulator: MutableList<Token> = mutableListOf()
-
-	while (count != 0) {
-		if (index == tokens.size) break
-
-		if (tokens[index].type == countIncType) {
-			count++
-		} else if (tokens[index].type == countDecType) {
-			count--
-		}
-
-		if (count != 0) {
-			accumulator.add(tokens[index])
-			index++
-		}
-	}
-
-	return Pair(index, accumulator)
-}
-
 // first puts all code sections into their respective methods
 fun parse(tokens: List<Token>): List<Command> {
 	val commands = mutableListOf<Command>()
@@ -39,7 +7,7 @@ fun parse(tokens: List<Token>): List<Command> {
 		val token = tokens[index]
 
 		if (token.type == TT.MAIN_TAG) {
-			val body = collect(tokens, index + 2, 1, TT.OPEN_CURLY, TT.CLOSE_CURLY)
+			val body = collect(tokens, index + 2)
 			index = body.first
 			commands.add(MainMethod(splitIntoSections(body.second).map { parseSection(it) }))
 		} else if (token.type == TT.F_TAG) {
@@ -58,7 +26,7 @@ fun parse(tokens: List<Token>): List<Command> {
 			}
 
 			// moves off ')' onto first token in body, collects body
-			val func = collect(tokens, index + 2, 1, TT.OPEN_CURLY, TT.CLOSE_CURLY)
+			val func = collect(tokens, index + 2)
 			index = func.first
 			// body into lines/sections of code
 			val sections = splitIntoSections(func.second)
@@ -104,7 +72,7 @@ fun splitIntoSections(tokens: List<Token>): MutableList<MutableList<Token>> {
 			}
 			current.add(tokens[index])
 
-			val body = collect(tokens, index + 1, 1, TT.OPEN_CURLY, TT.CLOSE_CURLY)
+			val body = collect(tokens, index + 1)
 			current.addAll(body.second)
 			index = body.first
 			current.add(tokens[index])
@@ -119,7 +87,7 @@ fun splitIntoSections(tokens: List<Token>): MutableList<MutableList<Token>> {
 				index++
 				current.add(tokens[index])
 
-				val altBody = collect(tokens, index + 1, 1, TT.OPEN_CURLY, TT.CLOSE_CURLY)
+				val altBody = collect(tokens, index + 1)
 				current.addAll(altBody.second)
 				index = altBody.first
 				current.add(tokens[index])
@@ -219,7 +187,7 @@ fun parseSection(section: MutableList<Token>): Command {
 		}
 		tokens.removeFirst()
 
-		val body = collect(tokens, 0, 1, TT.OPEN_CURLY, TT.CLOSE_CURLY)
+		val body = collect(tokens, 0)
 
 		if (first.type == TT.WHILE_TAG) {
 			val bodyCommands = splitIntoSections(body.second).map {
@@ -290,7 +258,40 @@ fun parseSection(section: MutableList<Token>): Command {
 			command = RawArrayDefinition(itemCommands)
 		}
 	}
+
 	return command
+}
+
+// collects all tokens encased by countIntType and countDecType
+fun collect(
+	tokens: List<Token>,
+	startingIndex: Int,
+	startingCount: Int = 1,
+	countIncType: TT = TT.OPEN_CURLY,
+	countDecType: TT = TT.CLOSE_CURLY
+): Pair<Int, MutableList<Token>> {
+	// index is needed so you can pick up from where this method leaves off
+	var index = startingIndex
+	// count keeps track of how nested we are in the pair of types which are collecting between
+	var count = startingCount
+	val accumulator: MutableList<Token> = mutableListOf()
+
+	while (count != 0) {
+		if (index == tokens.size) break
+
+		if (tokens[index].type == countIncType) {
+			count++
+		} else if (tokens[index].type == countDecType) {
+			count--
+		}
+
+		if (count != 0) {
+			accumulator.add(tokens[index])
+			index++
+		}
+	}
+
+	return Pair(index, accumulator)
 }
 
 fun collectArguments(tokens: List<Token>): MutableList<MutableList<Token>> {

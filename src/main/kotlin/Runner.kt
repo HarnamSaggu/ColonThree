@@ -7,11 +7,11 @@ fun run(sourceCode: String) {
 	Runner(commands)
 }
 
-fun run(commands: List<Command>, output: ((Any) -> Unit), input: (() -> String)) {
-	Runner(commands, output, input)
+fun run(commands: List<Command>, output: ((Any) -> Unit), input: (() -> String), exit: ((Int) -> Unit)) {
+	Runner(commands, output, input, exit)
 }
 
-class Runner(commands: List<Command>, output: ((Any) -> Unit)? = null, input: (() -> String)? = null) {
+class Runner(commands: List<Command>, output: ((Any) -> Unit)? = null, input: (() -> String)? = null, exit: ((Int) -> Unit)? = null) {
 	// variables -------------------------------------------------------------------------------------
 	// variables are organised on different levels corresponding to the scope of which it's defined in
 	// the level is an array, each integer represents the index of that scope level within it's scope
@@ -36,12 +36,16 @@ class Runner(commands: List<Command>, output: ((Any) -> Unit)? = null, input: ((
 		if (input != null) {
 			changeInput(input)
 		}
+		if (exit != null) {
+			changeExit(exit)
+		}
 
 		// defines variable level for the main method
 		val mainMethod = commands.filterIsInstance<MainMethod>()[0]
 		variables[methodLevel.toMutableList()] = mutableMapOf()
 
 		runSection(mainMethod.body, methodLevel.toMutableList(), null)
+		exit(0)
 	}
 
 	// as a method counts as a section, a return statement is needed
@@ -68,7 +72,7 @@ class Runner(commands: List<Command>, output: ((Any) -> Unit)? = null, input: ((
 				variables[actualLevel]?.let { x ->
 					val value = evaluate(it.value, variableLevel)
 					val index = (evaluate(it.index, variableLevel) as BigInteger).toInt()
-					// i will try to avoid casting Any? to Mutable<Any>
+					// I will try to avoid casting Any? to Mutable<Any>
 					(x[it.variableName] as MutableList<Any>)[index] = value
 				}
 			} else if (it is MethodCall) {
@@ -77,10 +81,9 @@ class Runner(commands: List<Command>, output: ((Any) -> Unit)? = null, input: ((
 				// * the method was not recognised
 				// * invalid data types passed
 				// therefore we check if a user defined function matches the arguments better
-				if (evaluatePrebuiltMethod(it.functionName, it.arguments.map { x ->
-						evaluate(x, variableLevel)
-					}) == 0) {
-					runUserDefinedMethod(it, variableLevel)
+				val arguments = it.arguments.map { x -> evaluate(x, variableLevel) }
+				if (evaluatePrebuiltMethod(it.functionName, arguments) == 0) {
+					runUserDefinedMethod(it.functionName, arguments)
 				}
 
 			} else if (it is IfElseStatement) {
@@ -123,9 +126,9 @@ class Runner(commands: List<Command>, output: ((Any) -> Unit)? = null, input: ((
 		}
 	}
 
-	private fun runUserDefinedMethod(methodCall: MethodCall, variableLevel: MutableList<Int>): Any {
+	private fun runUserDefinedMethod(methodName: String, arguments: List<Any>): Any {
 		// try to retrieve command for method
-		val method = methods[methodCall.functionName]
+		val method = methods[methodName]
 		return if (method != null) {
 			// creates new level
 			methodLevel[0]++
@@ -137,8 +140,7 @@ class Runner(commands: List<Command>, output: ((Any) -> Unit)? = null, input: ((
 			// for the arguments provided
 			for (index in method.parameterNames.indices) {
 				variables[methodLevel]?.let { x ->
-					val value = evaluate(methodCall.arguments[index], variableLevel)
-					x[method.parameterNames[index]] = value
+					x[method.parameterNames[index]] = arguments[index]
 				}
 			}
 
@@ -163,11 +165,10 @@ class Runner(commands: List<Command>, output: ((Any) -> Unit)? = null, input: ((
 				// * the method was not recognised
 				// * invalid data types passed
 				// therefore we check if a user defined function matches the arguments better
-				val prebuiltReturn = evaluatePrebuiltMethod(command.functionName, command.arguments.map { x ->
-					evaluate(x, variableLevel)
-				})
+				val arguments = command.arguments.map { x -> evaluate(x, variableLevel) }
+				val prebuiltReturn = evaluatePrebuiltMethod(command.functionName, arguments)
 				return if (prebuiltReturn == 0) {
-					runUserDefinedMethod(command, variableLevel)
+					runUserDefinedMethod(command.functionName, arguments)
 				} else {
 					prebuiltReturn
 				}

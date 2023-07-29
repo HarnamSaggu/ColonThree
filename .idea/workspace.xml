@@ -10,14 +10,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" name="Changes" comment="colors">
+    <list default="true" id="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" name="Changes" comment="light refactoring/clean up">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" afterDir="false" />
-    </list>
-    <list id="d7064f79-9b25-452e-94e3-adcfdc5650d7" name="Changes by Harna" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Editor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Parser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Parser.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" afterDir="false" />
+    </list>
+    <list id="d7064f79-9b25-452e-94e3-adcfdc5650d7" name="Changes by Harna" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,42 +38,29 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Java/jdk-18.0.2.1/lib/src.zip!/java.base/jdk/internal/misc/Unsafe.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/kotlin/Editor.kt">
+    <file path="$PROJECT_DIR$/src/main/kotlin/PrebuiltMethods.kt">
       <ranges>
-        <range start1="1" end1="2" start2="1" end2="2" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="3" end1="4" start2="3" end2="3" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="15" end1="15" start2="14" end2="16" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="44" end1="45" start2="45" end2="46" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="52" end1="68" start2="53" end2="54" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="71" end1="72" start2="57" end2="58" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="75" end1="76" start2="61" end2="62" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="105" end1="105" start2="91" end2="98" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="109" end1="112" start2="102" end2="105" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="129" end1="131" start2="122" end2="123" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="132" end1="134" start2="124" end2="125" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="136" end1="139" start2="127" end2="130" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="153" end1="154" start2="144" end2="145" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="203" end1="204" start2="194" end2="195" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="207" end1="209" start2="198" end2="200" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="214" end1="216" start2="205" end2="207" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="221" end1="223" start2="212" end2="214" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="228" end1="230" start2="219" end2="221" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="235" end1="237" start2="226" end2="228" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="242" end1="244" start2="233" end2="235" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="249" end1="251" start2="240" end2="242" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="256" end1="258" start2="247" end2="249" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="311" end1="313" start2="302" end2="303" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="329" end1="329" start2="319" end2="322" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
-        <range start1="331" end1="331" start2="324" end2="368" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="352" end1="354" start2="389" end2="391" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
-        <range start1="367" end1="367" start2="404" end2="407" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="9" end1="11" start2="9" end2="11" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="25" end1="25" start2="25" end2="33" changelist="d7064f79-9b25-452e-94e3-adcfdc5650d7" />
+        <range start1="72" end1="73" start2="80" end2="86" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="79" end1="80" start2="92" end2="93" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
+        <range start1="314" end1="315" start2="327" end2="332" changelist="4dda0ee2-16a7-4ed8-a64e-a513aecbc2db" />
       </ranges>
     </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2Shpa08V1xIU29380KjrK4LdeNJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -84,11 +75,19 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "C:/Users/theto/IdeaProjects/Scrathpad",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/theto/Documents/ColonThree",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -127,8 +126,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Kotlin.MainKt" />
       <item itemvalue="Kotlin.EditorKt" />
+      <item itemvalue="Kotlin.MainKt" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -150,7 +149,17 @@
       <workItem from="1689707899424" duration="413000" />
       <workItem from="1689786803827" duration="2469000" />
       <workItem from="1689861595400" duration="9851000" />
-      <workItem from="1689894186624" duration="18034000" />
+      <workItem from="1689894186624" duration="18251000" />
+      <workItem from="1690118509114" duration="3465000" />
+      <workItem from="1690146119238" duration="1861000" />
+      <workItem from="1690381842569" duration="3772000" />
+      <workItem from="1690500694361" duration="97000" />
+      <workItem from="1690665995524" duration="448000" />
+      <workItem from="1690666473019" duration="30000" />
+      <workItem from="1690666517603" duration="9000" />
+      <workItem from="1690667159804" duration="1860000" />
+      <workItem from="1690670931808" duration="17000" />
+      <workItem from="1690670965957" duration="1496000" />
     </task>
     <task id="LOCAL-00001" summary="JAR setup complete">
       <created>1689611338304</created>
@@ -215,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690069520473</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="brings up autosave on start up&#10;and autosaves on close">
+      <created>1690118298472</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1690118298473</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +258,9 @@
     <MESSAGE value="honestly dont know what this commit is about" />
     <MESSAGE value="better auto indents" />
     <MESSAGE value="colors" />
-    <option name="LAST_COMMIT_MESSAGE" value="colors" />
+    <MESSAGE value="brings up autosave on start up&#10;and autosaves on close" />
+    <MESSAGE value="light refactoring/clean up" />
+    <option name="LAST_COMMIT_MESSAGE" value="light refactoring/clean up" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
@@ -256,6 +274,10 @@
         <watch expression="this" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="regexState">
     <option name="map">

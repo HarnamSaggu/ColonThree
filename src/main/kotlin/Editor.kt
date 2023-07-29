@@ -28,8 +28,8 @@ class Editor : JFrame("ColonThree IDE") {
 	private var runThread: SwingWorker<Any?, Any?> = createNewWorker()
 
 	val fontForeground = Color(210, 210, 210)
-	val editorBackground = Color(40, 40, 40)
-	private val variableColor = Color(0xE7BEAA)
+	val editorBackground = Color(20, 20, 20)
+	private val variableColor = Color(0x9591FF)
 	private val keywordColor = Color(243, 69, 49)
 	private val assignmentColor = Color(250, 180, 40)
 	private val bracketColor = Color(250, 110, 50)
@@ -37,8 +37,10 @@ class Editor : JFrame("ColonThree IDE") {
 	private val semicolonColor = Color(215, 72, 148)
 	private val commentColor = Color(120, 95, 95)
 	private val literalColor = Color(145, 185, 35)
-	private val numberColor = Color(138, 139, 255)
+	private val numberColor = Color(0x6AC522)
 	private val caretColor = Color(250, 180, 40)
+	private val scrollBarColor = Color(50, 50, 50)
+	private val scrollButtonColor = Color(35, 35, 35)
 	private val fontSize = 16
 	val autoSaveTimer = 1_500
 
@@ -51,30 +53,15 @@ class Editor : JFrame("ColonThree IDE") {
 		} else {
 			ImageIcon("icon.png").image
 		}
-		background = BACKGROUND
-
-		addKeyListener(object : KeyListener {
-			override fun keyTyped(e: KeyEvent?) {
-				// unused
-			}
-
-			override fun keyPressed(e: KeyEvent?) {
-				// unused
-			}
-
-			override fun keyReleased(e: KeyEvent?) {
-				// unused
-			}
-
-		})
+		background = editorBackground
 
 		val leftPanel = JPanel()
 		leftPanel.preferredSize = Dimension(900, 700)
-		leftPanel.background = BACKGROUND
+		leftPanel.background = editorBackground
 		leftPanel.layout = BorderLayout()
 
 		editorPane = createTextPane()
-		editorPane.background = BACKGROUND
+		editorPane.background = editorBackground
 		editorPane.border = BorderFactory.createEmptyBorder(15, 15, 15, 15)
 		editorPane.caretColor = caretColor
 		doc = editorPane.styledDocument
@@ -115,17 +102,47 @@ class Editor : JFrame("ColonThree IDE") {
 		noWrapPanel.add(editorPane)
 
 		val editorScroller = JScrollPane(noWrapPanel)
-		editorScroller.background = BACKGROUND
-		editorScroller.verticalScrollBar.background = BACKGROUND
-		editorScroller.horizontalScrollBar.background = BACKGROUND
+		editorScroller.background = editorBackground
+		editorScroller.verticalScrollBar.background = editorBackground
+		editorScroller.horizontalScrollBar.background = editorBackground
 		editorScroller.verticalScrollBar.setUI(object : BasicScrollBarUI() {
 			override fun configureScrollBarColors() {
-				thumbColor = Color(100, 100, 100)
+				scrollBarWidth = 15
+				thumbColor = scrollBarColor
+			}
+
+			override fun createDecreaseButton(orientation: Int): JButton? {
+				val button = super.createDecreaseButton(orientation)
+				button.background = scrollButtonColor
+				button.foreground = editorBackground
+				return button
+			}
+
+			override fun createIncreaseButton(orientation: Int): JButton? {
+				val button = super.createIncreaseButton(orientation)
+				button.background = scrollButtonColor
+				button.foreground = editorBackground
+				return button
 			}
 		})
 		editorScroller.horizontalScrollBar.setUI(object : BasicScrollBarUI() {
 			override fun configureScrollBarColors() {
-				thumbColor = Color(100, 100, 100)
+				scrollBarWidth = 15
+				thumbColor = scrollBarColor
+			}
+
+			override fun createDecreaseButton(orientation: Int): JButton? {
+				val button = super.createDecreaseButton(orientation)
+				button.background = scrollButtonColor
+				button.foreground = editorBackground
+				return button
+			}
+
+			override fun createIncreaseButton(orientation: Int): JButton? {
+				val button = super.createIncreaseButton(orientation)
+				button.background = scrollButtonColor
+				button.foreground = editorBackground
+				return button
 			}
 		})
 		editorScroller.border = BorderFactory.createEmptyBorder(10, 10, 10, 10)
@@ -135,31 +152,59 @@ class Editor : JFrame("ColonThree IDE") {
 
 		outputPane = JTextArea()
 		outputPane.border = BorderFactory.createEmptyBorder(5, 5, 5, 5)
-		outputPane.background = BACKGROUND
-//		outputPane.preferredSize = Dimension(350, 700)
+		outputPane.background = editorBackground
 		outputPane.font = font
-		outputPane.foreground = FONT_FOREGROUND
-//		(outputPane.caret as DefaultCaret).updatePolicy = DefaultCaret.ALWAYS_UPDATE
+		outputPane.foreground = fontForeground
 
 		outputScroller = JScrollPane(outputPane)
-		outputScroller.background = BACKGROUND
-		outputScroller.verticalScrollBar.background = BACKGROUND
-		outputScroller.horizontalScrollBar.background = BACKGROUND
+		outputScroller.background = editorBackground
+		outputScroller.verticalScrollBar.background = editorBackground
+		outputScroller.horizontalScrollBar.background = editorBackground
 		outputScroller.verticalScrollBar.setUI(object : BasicScrollBarUI() {
 			override fun configureScrollBarColors() {
-				thumbColor = Color(100, 100, 100)
+				scrollBarWidth = 15
+				thumbColor = scrollBarColor
+			}
+
+			override fun createDecreaseButton(orientation: Int): JButton? {
+				val button = super.createDecreaseButton(orientation)
+				button.background = scrollButtonColor
+				button.foreground = editorBackground
+				return button
+			}
+
+			override fun createIncreaseButton(orientation: Int): JButton? {
+				val button = super.createIncreaseButton(orientation)
+				button.background = scrollButtonColor
+				button.foreground = editorBackground
+				return button
 			}
 		})
 		outputScroller.horizontalScrollBar.setUI(object : BasicScrollBarUI() {
 			override fun configureScrollBarColors() {
-				thumbColor = Color(100, 100, 100)
+				scrollBarWidth = 15
+				thumbColor = scrollBarColor
+			}
+
+			override fun createDecreaseButton(orientation: Int): JButton? {
+				val button = super.createDecreaseButton(orientation)
+				button.background = scrollButtonColor
+				button.foreground = editorBackground
+				return button
+			}
+
+			override fun createIncreaseButton(orientation: Int): JButton? {
+				val button = super.createIncreaseButton(orientation)
+				button.background = scrollButtonColor
+				button.foreground = editorBackground
+				return button
 			}
 		})
 		outputScroller.border = BorderFactory.createEmptyBorder(10, 10, 10, 10)
 
 		val rightPanel = JPanel()
 		rightPanel.preferredSize = Dimension(350, 700)
-		rightPanel.background = BACKGROUND
+		rightPanel.background = editorBackground
 		rightPanel.layout = BorderLayout()
 		rightPanel.add(outputScroller, BorderLayout.CENTER)
 
@@ -172,7 +217,7 @@ class Editor : JFrame("ColonThree IDE") {
 					}
 
 					override fun paint(g: Graphics) {
-						g.color = Color(100, 100, 100)
+						g.color = scrollBarColor
 						g.fillRect(0, 0, size.width, size.height)
 						super.paint(g)
 					}
@@ -209,61 +254,61 @@ class Editor : JFrame("ColonThree IDE") {
 
 		val menuBar = JMenuBar()
 		menuBar.border = BorderFactory.createEmptyBorder(5, 5, 5, 5)
-		menuBar.background = BACKGROUND
+		menuBar.background = editorBackground
 
 		val fileMenu = JMenu("File")
 		fileMenu.font = font
-		fileMenu.foreground = FONT_FOREGROUND
-		fileMenu.background = BACKGROUND
+		fileMenu.foreground = fontForeground
+		fileMenu.background = editorBackground
 		fileMenu.mnemonic = VK_F
 		menuBar.add(fileMenu)
 
 		val runMenu = JMenu("Run")
 		runMenu.font = font
-		runMenu.foreground = FONT_FOREGROUND
-		runMenu.background = BACKGROUND
+		runMenu.foreground = fontForeground
+		runMenu.background = editorBackground
 		runMenu.mnemonic = VK_R
 		menuBar.add(runMenu)
 
 		val runItem = JMenuItem("Run")
 		runItem.font = font
-		runItem.foreground = FONT_FOREGROUND
-		runItem.background = BACKGROUND
+		runItem.foreground = fontForeground
+		runItem.background = editorBackground
 		runItem.mnemonic = VK_R
 		runMenu.add(runItem)
 
 		val terminateItem = JMenuItem("Terminate")
 		terminateItem.font = font
-		terminateItem.foreground = FONT_FOREGROUND
-		terminateItem.background = BACKGROUND
+		terminateItem.foreground = fontForeground
+		terminateItem.background = editorBackground
 		terminateItem.mnemonic = VK_T
 		runMenu.add(terminateItem)
 
 		val autoScrollItem = JMenuItem("Auto scroll: false")
 		autoScrollItem.font = font
-		autoScrollItem.foreground = FONT_FOREGROUND
-		autoScrollItem.background = BACKGROUND
+		autoScrollItem.foreground = fontForeground
+		autoScrollItem.background = editorBackground
 		autoScrollItem.mnemonic = VK_T
 		runMenu.add(autoScrollItem)
 
 		val openItem = JMenuItem("Open")
 		openItem.font = font
-		openItem.foreground = FONT_FOREGROUND
-		openItem.background = BACKGROUND
+		openItem.foreground = fontForeground
+		openItem.background = editorBackground
 		openItem.mnemonic = VK_O
 		fileMenu.add(openItem)
 
 		val saveItem = JMenuItem("Save")
 		saveItem.font = font
-		saveItem.foreground = FONT_FOREGROUND
-		saveItem.background = BACKGROUND
+		saveItem.foreground = fontForeground
+		saveItem.background = editorBackground
 		saveItem.mnemonic = VK_S
 		fileMenu.add(saveItem)
 
 		val saveAsItem = JMenuItem("Save as")
 		saveAsItem.font = font
-		saveAsItem.foreground = FONT_FOREGROUND
-		saveAsItem.background = BACKGROUND
+		saveAsItem.foreground = fontForeground
+		saveAsItem.background = editorBackground
 		saveAsItem.mnemonic = VK_A
 		fileMenu.add(saveAsItem)
 
@@ -317,8 +362,7 @@ class Editor : JFrame("ColonThree IDE") {
 		}
 
 		terminateItem.addActionListener {
-			runThread.cancel(true)
-			runThread = createNewWorker()
+			terminate(-1)
 		}
 
 		autoScrollItem.addActionListener {
@@ -338,6 +382,50 @@ class Editor : JFrame("ColonThree IDE") {
 
 		editorPane.text = File("autosave.txt").readText()
 		setText()
+	}
+
+	private fun createTextPane(): JTextPane {
+		val textPane = JTextPane()
+
+		val styDoc = textPane.styledDocument
+		val def = StyleContext.getDefaultStyleContext().getStyle(StyleContext.DEFAULT_STYLE)
+
+		val regular = styDoc.addStyle("regular", def)
+		StyleConstants.setFontFamily(def, "Fira code")
+		StyleConstants.setForeground(def, fontForeground)
+		StyleConstants.setFontSize(def, fontSize)
+
+		var s = styDoc.addStyle("variable", regular)
+		StyleConstants.setForeground(s, variableColor)
+
+		s = styDoc.addStyle("keyword", regular)
+		StyleConstants.setForeground(s, keywordColor)
+		StyleConstants.setBold(s, true)
+
+		s = styDoc.addStyle("assignment", regular)
+		StyleConstants.setForeground(s, assignmentColor)
+
+		s = styDoc.addStyle("bracket", regular)
+		StyleConstants.setForeground(s, bracketColor)
+		StyleConstants.setBold(s, true)
+
+		s = styDoc.addStyle("normal bracket", regular)
+		StyleConstants.setForeground(s, normalBracketColor)
+
+		s = styDoc.addStyle("semicolon", regular)
+		StyleConstants.setForeground(s, semicolonColor)
+		StyleConstants.setItalic(s, true)
+
+		s = styDoc.addStyle("comment", regular)
+		StyleConstants.setForeground(s, commentColor)
+
+		s = styDoc.addStyle("literal", regular)
+		StyleConstants.setForeground(s, literalColor)
+
+		s = styDoc.addStyle("number", regular)
+		StyleConstants.setForeground(s, numberColor)
+
+		return textPane
 	}
 
 	private fun createNewWorker(): SwingWorker<Any?, Any?> {
@@ -361,8 +449,8 @@ class Editor : JFrame("ColonThree IDE") {
 				run(commands, { x -> outputPane.text += x }, {
 					val input = JTextField()
 					input.font = font
-					input.foreground = FONT_FOREGROUND
-					input.background = BACKGROUND
+					input.foreground = fontForeground
+					input.background = editorBackground
 					val inputArray = arrayOf<JComponent>(input)
 					val result = JOptionPane.showConfirmDialog(
 						this@Editor,
@@ -376,6 +464,9 @@ class Editor : JFrame("ColonThree IDE") {
 					} else {
 						""
 					}
+				}, { x ->
+					terminate(x)
+					cancel(true)
 				})
 
 				return null

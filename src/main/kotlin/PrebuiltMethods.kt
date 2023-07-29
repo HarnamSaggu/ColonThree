@@ -70,14 +70,19 @@ fun evaluatePrebuiltMethod(name: String, args: List<Any>): Any = when (name) {
 	}
 
 	"div" -> {
-		if (args[0] is BigInteger && args[1] is BigInteger) {
+		if (args.size == 3 && args[0] is BigDecimal && args[1] is BigDecimal && args[2] is BigInteger) {
+			val a = args[0] as BigDecimal
+			val b = args[1] as BigDecimal
+			val c = args[2] as BigInteger
+			a.divide(b, c.toInt(), RoundingMode.HALF_UP)
+		} else if (args[0] is BigInteger && args[1] is BigInteger) {
 			val a = args[0] as BigInteger
 			val b = args[1] as BigInteger
 			a.divide(b)
 		} else if (args[0] is BigDecimal && args[1] is BigDecimal) {
 			val a = args[0] as BigDecimal
 			val b = args[1] as BigDecimal
-			a.divide(b)
+			a.divide(b, 128, RoundingMode.HALF_UP)
 		} else {
 			0
 		}
@@ -312,7 +317,11 @@ fun evaluatePrebuiltMethod(name: String, args: List<Any>): Any = when (name) {
 
 	// int -> decimal
 	"decimal" -> {
-		if (args[0] is BigInteger) {
+		if (args.size == 2 && args[0] is BigDecimal && args[1] is BigInteger) {
+			val a = args[0] as BigDecimal
+			val b = args[1] as BigInteger
+			BigDecimal(a.toString(), MathContext(b.toInt(), RoundingMode.HALF_UP))
+		} else if (args[0] is BigInteger) {
 			val a = args[0] as BigInteger
 			BigDecimal(a)
 		} else {
